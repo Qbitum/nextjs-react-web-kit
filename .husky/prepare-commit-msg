@@ -1,0 +1,24 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "┏━━━ Preparing Commit Message "
+echo "[Documentation] How to write commit message - https://github.com/Qbitum/qb-react-webapp/README.md#markdown-header-how-to-write-commit-messages"
+echo "[Documentation] How to cut a release - https://github.com/Qbitum/qb-react-webapp/README.md#markdown-header-how-to-create-a-release"
+
+#Don't do anything on merge commits
+[ "$2" = "merge" ] && exit 0
+
+#If there's already a message, do nothing
+[ "$2" = "message" ] && exit 0
+[ "$2" = "template" ] && exit 0
+
+#For squash messages do nothing
+[ "$2" = "squash" ] && exit 0
+
+#For ammending commits, merely add a diff to the end
+if [ "$2" = "commit" ]; then
+  exit 0
+fi
+
+#Initialize commit hook
+exec < /dev/tty && npm run commit -- --hook || true

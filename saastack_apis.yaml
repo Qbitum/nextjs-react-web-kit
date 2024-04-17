@@ -1,0 +1,93 @@
+#v2.1
+openapi: 3.0.0
+servers:
+  - url: https://devlabelinspector.qbitum.net
+    description: development server
+info:
+  description: >-
+    This is a first set of label inspector services apis.
+  version: 1.0.0
+  title: Label Inspector APIs
+  license:
+    name: Apache-2.0
+    url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+paths:
+  /v1/training/jobs/summary:
+    get:
+      tags:
+        - training job
+        - web
+      summary: Job status summary in landing page
+      description: Results will be different by product or based on roles of the current logged in user
+      operationId: trainingJobsSummary
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: Authorization
+          in: header
+          description: Bearer Token for Authorization
+          schema:
+            type: string
+        - name: X-Client-Id
+          in: header
+          description: client ID
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "list of components your has access to/ or may be a dashboard configurations"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Summary"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+# comment
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - status
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        status:
+          type: string
+        message:
+          type: string
+    Summary:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/Overview"
+    Overview:
+      type: object
+      required:
+        - "jobStatus"
+        - "totalNoOfJobs"
+      properties:
+        jobStatus:
+          type: string
+        totalNoOfJobs:
+          type: number
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT # optional, arbitrary value for documentation purposes

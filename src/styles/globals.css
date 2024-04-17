@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 20px;
+}
+
+.bg-image {
+  background-image: url("../../public/bg-img.jpg");
+}
+
+#__next {
+  overflow: hidden;
+  height: 100%;
+}
+
+.wrapper {
+  transition: all 0.2s ease-in-out;
+}
