@@ -6,7 +6,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './saastack-react/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@qbitum/react-flat-ui/lib/esm/**/*.js'
 
   ],
@@ -79,46 +79,17 @@ const config: Config = {
         highlight: {
           100: '#F58E15',
         },
-        statusClr: {
-          pendingApproval100: '#99F5FF',
-          pendingApproval400: '#26727B',
-          processFailed100: '#FDB4CD',
-          processFailed200: '#843651',
-          readyProses100: '#FFE099',
-          readyProses200: '#7D693A',
-          Processing100: '#C2CFFF',
-          processing200: '#2B4AB6',
-        },
-        btntext: {
-          default: '#FFFFFF',
-          primary: '#FFFFFF',
-          secondary: '#FFFFFF',
-          tertiary: '#FFFFFF',
-          themeFailure: '#FFFFFF',
-          themeSuccess: '#FFFFFF',
-          themeWarning: '#FFFFFF',
-          themeInfo: '#FFFFFF',
-        },
+        
         appBg: {
           80: '#F2F8FC',
           100: '#F1F8FC',
           200: '#D9E2ED',
           400: '#EAEFF0',
         },
-        status: {
-          cyan100: '#99F5FF',
-          cyan400: '#26727B',
-          red100: '#FDB4CD',
-          red400: '#843651',
-          yellow100: '#FFE099',
-          yellow400: '#7D693A',
-          blue100: '#C2CFFF',
-          blue400: '#2B3B71',
-        },
+       
       },
       backgroundImage: {
         'menu': "url('/imgs/menubg.png')",
-        'page': "url('/imgs/pagebg.png')"
       },
       maxWidth: {
         '8xl': '90rem',

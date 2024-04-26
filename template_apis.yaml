@@ -1,25 +1,24 @@
 #v2.1
 openapi: 3.0.0
 servers:
-  - url: https://devlabelinspector.qbitum.net
+  - url: https://devtemplate.qbitum.net
     description: development server
 info:
   description: >-
-    This is a first set of label inspector services apis.
+    This is services apis.
   version: 1.0.0
-  title: Label Inspector APIs
+  title: APIs
   license:
     name: Apache-2.0
     url: "https://www.apache.org/licenses/LICENSE-2.0.html"
 paths:
-  /v1/training/jobs/summary:
+  /v1/sample:
     get:
       tags:
-        - training job
         - web
-      summary: Job status summary in landing page
-      description: Results will be different by product or based on roles of the current logged in user
-      operationId: trainingJobsSummary
+      summary: API summary
+      description: API description
+      operationId: summaryID
       security:
         - bearerAuth: []
       parameters:
@@ -36,7 +35,7 @@ paths:
             type: string
       responses:
         "200":
-          description: "list of components your has access to/ or may be a dashboard configurations"
+          description: "message to display when the API is successfull"
           content:
             application/json:
               schema:

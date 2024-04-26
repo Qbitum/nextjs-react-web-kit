@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Label, TextInput, Button } from "@qbitum/react-flat-ui";
+import { Label, TextInput, Button } from "flowbite-react";
 import SignInController from "./sign-in.controller";
 
 export type SignInProps = {

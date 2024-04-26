@@ -1,7 +1,7 @@
 import { useContext, type ReactNode } from 'react';
-import { Navbar, Dropdown, Avatar, Separator, HeaderText } from '@qbitum/react-flat-ui';
 import { useRouter } from 'next/router';
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
+import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 
 
 export type HeaderProps = {
@@ -50,10 +50,10 @@ export function Header({ children, logOutEvent }: HeaderProps) {
         <Navbar.Toggle />
       </div>
       <div className='flex ml-auto'>
-        <HeaderText size='sm' fontWeight='normal'>{tenantName}</HeaderText>
+        {/* <HeaderText size='sm' fontWeight='normal'>{tenantName}</HeaderText>
         <Separator color='white' />
         <HeaderText size='sm' fontWeight='normal'>{userName}</HeaderText>
-        <Separator color='white' />
+        <Separator color='white' /> */}
       </div>
     </ Navbar>
   );

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Breadcrumb, BreadcrumbItem } from '@qbitum/react-flat-ui';
+import { Breadcrumb, BreadcrumbItem } from 'flowbite-react';
 export type BreadcrumbProps = {
   children?: ReactNode;
 };

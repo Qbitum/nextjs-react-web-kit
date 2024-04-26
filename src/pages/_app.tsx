@@ -1,21 +1,20 @@
 import "@/styles/globals.css";
 import { useContext, useRef, useState } from "react";
 import type { AppProps } from "next/app";
-import { QApp } from "../../saastack-react/ui/app/index";
+import { QApp } from "../../components/ui/app/index";
 import AsideRoutes from "@/layout/AsideRoutes";
 import Wrapper from "@/layout/Wrapper";
 import { AuthContext, AuthProvider, IAuthContext } from "react-oauth2-code-pkce";
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
-  TAuthConfig
+    TAuthConfig
 } from "react-oauth2-code-pkce";
 import { ToastContainer } from "react-toastify";
 import { getAuthConfig } from "@/helpers/helpers";
 import { useEffectOnce } from "react-use";
 import { AuthAPIContextProvider } from "@/context/authapi.context";
 // import { rules } from "@/abac.config";
-
 
 export default function ImAdminApp({
   Component,
@@ -25,8 +24,6 @@ export default function ImAdminApp({
   const isRun = useRef(false);
   const [authConfig, setAuthConfig] = useState<TAuthConfig>();
   const auth = useContext<IAuthContext>(AuthContext);
-
-
 
   useEffectOnce(() => {
     setTimeout(() => {
@@ -75,6 +72,7 @@ export default function ImAdminApp({
                 {/* <HeaderRoutes/> */}
                 {/* <AbacProvider rules={rules} user={user} roles={user.roles} permissions={user.permissions}> */}
                 <Component {...pageProps} />
+                {/* <NetworkStatus/> */}
                 {/* </AbacProvider> */}
               </Wrapper>
             </QApp>

@@ -18,11 +18,11 @@ const nextConfig = {
   },
   async rewrites() {
     return [
-      {
-        source: '/mock/:slug*',
-        destination: 'http://52.53.116.106:9080/mock/web/:slug*',
+      // {
+      //   source: '/mock/:slug*',
+      //   destination: 'http://52.53.116.106:9080/mock/web/:slug*',
 
-      },
+      // },
       {
         source: '/api/:path*',
         destination: 'https://devlabelinspector.qbitum.net/api/:path*',
