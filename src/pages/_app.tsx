@@ -6,6 +6,7 @@ import AsideRoutes from "@/layout/AsideRoutes";
 import Wrapper from "@/layout/Wrapper";
 import { AuthContext, AuthProvider, IAuthContext } from "react-oauth2-code-pkce";
 import 'react-toastify/dist/ReactToastify.css';
+import {appWithTranslation} from 'next-i18next'
 
 import {
   TAuthConfig
@@ -17,7 +18,7 @@ import { AuthAPIContextProvider } from "@/context/authapi.context";
 // import { rules } from "@/abac.config";
 
 
-export default function ImAdminApp({
+function ImAdminApp({
   Component,
   pageProps: { session, ...pageProps },
 }: AppProps) {
@@ -78,12 +79,13 @@ export default function ImAdminApp({
                 {/* </AbacProvider> */}
               </Wrapper>
             </QApp>
-          </AuthAPIContextProvider>
-        </AuthProvider>
+           </AuthAPIContextProvider>
+         </AuthProvider>
       )}
     </>
   );
 }
+export default appWithTranslation(ImAdminApp);
 
 // const EditPost = () => {
 //   const {userHasPermissions} : any = useAbac();
