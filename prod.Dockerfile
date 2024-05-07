@@ -20,7 +20,6 @@ RUN npm ci
 
 COPY src ./src
 COPY public ./public
-COPY saastack-react ./saastack-react
 COPY next.config.js .
 COPY tsconfig.json .
 COPY tailwind.config.ts .

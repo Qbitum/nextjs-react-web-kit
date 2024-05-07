@@ -39,7 +39,7 @@ interface IWrapper {
 const Wrapper: FC<IWrapper> = ({ children }) => {
 
 	const auth = useContext<IAuthContext>(AuthContext);
-	console.log("Wrapper token : ", auth?.tokenData?.role);
+	// console.log("Wrapper token : ", auth?.tokenData?.role);
 
 	const [user, setUser] = useState(
 		{
