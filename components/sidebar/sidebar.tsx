@@ -3,8 +3,7 @@ import { Sidebar as FlowbiteSidebar } from "@qbitum/react-flat-ui";
 import { useRouter } from "next/router";
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
 import { FaBell, FaRightFromBracket, FaUser } from "react-icons/fa6";
-import { AllowedTo } from "../../../src/context/react-abac/src";
-import { Permission } from "@/models/User";
+
 
 export type SidebarProps = {
   menu: {
@@ -15,6 +14,7 @@ export type SidebarProps = {
   className?: string;
 };
 
+
 interface ItemProps {
   children?: ReactNode;
   to?: string;
@@ -23,41 +23,51 @@ interface ItemProps {
   id?: string;
   icon: any;
   activeItem?: string;
-  isHorizontal?: boolean | undefined,
-  isMore?: boolean | undefined
+  isHorizontal?: boolean | undefined;
+  isMore?: boolean | undefined;
   setActiveItem?(...args: unknown[]): unknown;
 }
 
-export const Item: FC<ItemProps> = ({ to, as, id, title, icon, isMore, isHorizontal }) => {
+export const Item: FC<ItemProps> = ({
+  to,
+  as,
+  id,
+  title,
+  icon,
+  isMore,
+  isHorizontal,
+}) => {
   // For top menu
   const router = useRouter();
   // For aside menu
-  const here = typeof to === 'string' && to !== '/' && router.pathname.includes(to);
-  const match = to !== '/' && router.pathname === to;
+  const here =
+    typeof to === "string" && to !== "/" && router.pathname.includes(to);
+  const match = to !== "/" && router.pathname === to;
 
   function changePage(path: string) {
     if (path) {
       router.push(path, undefined, { shallow: true });
     }
   }
-  return (<React.Fragment>
-    {to ? (
-      <FlowbiteSidebar.Item
-        active={match}
-        href="#"
-        onClick={() => {
-          changePage(to);
-        }}
-        icon={icon}
-      >
-        {title}
-      </FlowbiteSidebar.Item>
-    ) : (
-      !isMore &&
-      !isHorizontal && <h2 key={id}>{title}</h2>
-    )}
-  </React.Fragment>);
-}
+  return (
+    <React.Fragment>
+      {to ? (
+        <FlowbiteSidebar.Item
+          active={match}
+          href="#"
+          onClick={() => {
+            changePage(to);
+          }}
+          icon={icon}
+        >
+          {title}
+        </FlowbiteSidebar.Item>
+      ) : (
+        !isMore && !isHorizontal && <h2 key={id}>{title}</h2>
+      )}
+    </React.Fragment>
+  );
+};
 
 export interface MenuItemModel {
   id?: string | number;
@@ -66,14 +76,14 @@ export interface MenuItemModel {
   icon?: any;
   isDisable?: boolean;
   subMenu?:
-  | {
-    id?: string | number;
-    text?: string;
-    path?: string;
-    icon?: any;
-    isDisable?: boolean;
-  }[]
-  | undefined;
+    | {
+        id?: string | number;
+        text?: string;
+        path?: string;
+        icon?: any;
+        isDisable?: boolean;
+      }[]
+    | undefined;
 }
 
 export function Sidebar({
@@ -96,9 +106,13 @@ export function Sidebar({
     isHorizontal: boolean | undefined,
     isMore: boolean | undefined
   ) {
-
     return Object.keys(data).map((item) => (
-      <Item key={data[item].id} title={data[item].text} to={data[item].path} icon={data[item].icon} />
+      <Item
+        key={data[item].id}
+        title={data[item].text}
+        to={data[item].path}
+        icon={data[item].icon}
+      />
     ));
   }
 
@@ -108,12 +122,10 @@ export function Sidebar({
   delete menuOperator.dashboard;
   delete menuOperator.jobList;
 
+  
   return (
     <>
-      <FlowbiteSidebar
-        collapsed={true}
-        className="flex-col"
-      >
+      <FlowbiteSidebar collapsed={true} className="flex-col">
         <FlowbiteSidebar.Logo
           href="#"
           img="favicon.svg"
@@ -147,26 +159,30 @@ export function Sidebar({
           {menu2 !== undefined ? (
             <FlowbiteSidebar.ItemGroup className="flex-grow">
               {fillMenu(menu2, id, id, horizontal, undefined)}
-            </FlowbiteSidebar.ItemGroup>) : null}
+            </FlowbiteSidebar.ItemGroup>
+          ) : null}
           {/* </AllowedTo> */}
 
           {/* bottom icons */}
           <div className="border rounded-lg bg-white bg-opacity-30 m-4 mt-64">
             <FlowbiteSidebar.BottomGroup className="p-0">
-              <FlowbiteSidebar.Item size={2} href="#" icon={FaBell}>
-              </FlowbiteSidebar.Item>
+              <FlowbiteSidebar.Item
+                size={2}
+                href="#"
+                icon={FaBell}
+              ></FlowbiteSidebar.Item>
               <FlowbiteSidebar.Item href="#" icon={FaUser}>
                 {/* {auth?.tokenData?.name} */}
               </FlowbiteSidebar.Item>
-              <FlowbiteSidebar.Item href="#" icon={FaRightFromBracket} onClick={handleLogout}>
-              </FlowbiteSidebar.Item>
+              <FlowbiteSidebar.Item
+                href="#"
+                icon={FaRightFromBracket}
+                onClick={handleLogout}
+              ></FlowbiteSidebar.Item>
             </FlowbiteSidebar.BottomGroup>
           </div>
-
         </FlowbiteSidebar.Items>
-
       </FlowbiteSidebar>
-
     </>
   );
 }

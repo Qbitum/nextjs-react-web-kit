@@ -1,4 +1,4 @@
-import { Button, Dropdown } from '@qbitum/react-flat-ui';
+import { Button, Dropdown } from 'flowbite-react';
 import Image from 'next/image'
 import type { ReactNode } from 'react';
 

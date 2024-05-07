@@ -22,7 +22,7 @@
         "./src/*"
       ],
       "QComponents/*": [
-        "./saastack-react/*"
+        "./components/*"
       ],
       "react": [
         "./node_modules/@types/react"

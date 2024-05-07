@@ -13,7 +13,7 @@
     "prepare": "husky install",
     "pre-commit": "next lint",
     "restify": "node ./restify.setup.js",
-    "generateapis": "rm -rf ./src/services; openapi-generator generate -i ./saastack_apis.yaml -o ./src/services -g typescript-axios --additional-properties=supportsES6=true,npmVersion=8.5.0,typescriptThreePlus=true,modelPackage=model",
+    "generateapis": "rm -rf ./src/services; openapi-generator generate -i ./template_apis.yaml -o ./src/services -g typescript-axios --additional-properties=supportsES6=true,npmVersion=8.5.0,typescriptThreePlus=true,modelPackage=model",
     "commit": "cz"
   },
   "husky": {

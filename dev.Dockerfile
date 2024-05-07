@@ -16,7 +16,7 @@ RUN \
 
 COPY src ./src
 COPY public ./public
-COPY saastack-react ./saastack-react
+COPY common ./common
 COPY next.config.js .
 COPY tsconfig.json .
 COPY tailwind.config.ts .

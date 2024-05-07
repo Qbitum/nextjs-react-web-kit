@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import Image from 'next/image'
-import { Button } from '@qbitum/react-flat-ui';
+import { Button } from 'flowbite-react';
 
 export type PageWithHeaderProps = {
   children?: ReactNode;
