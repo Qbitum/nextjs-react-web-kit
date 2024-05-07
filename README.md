@@ -135,5 +135,4 @@ There are two ways to cut a release with CHANGELOG.md and automated version bump
 // Version bum will be detected based on conventional commit
 npm run release
 
-this is a test
-```
+this is a test commit
