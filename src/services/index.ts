@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Label Inspector APIs
- * This is a first set of label inspector services apis.
+ * APIs
+ * This is services apis.
  *
  * The version of the OpenAPI document: 1.0.0
  * 

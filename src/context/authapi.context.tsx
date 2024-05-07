@@ -24,7 +24,7 @@ export const AuthAPIContextProvider: FC<AuthAPIContextProviderProps> = ({ childr
 
   const AuthApi = (): CoreAPIClient => {
     apiConfig.accessToken = authContext.token;
-    APIInstance.setAuthConfigs(apiConfig);
+    // APIInstance.setAuthConfigs(apiConfig);
     // logger.log(APIInstance);
     return APIInstance;
   };
