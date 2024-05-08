@@ -1,11 +1,15 @@
 import { createContext } from "react";
 
-
-const defaultValue = {
-    locale: 'hn',
-    // setLocale: ()  => {
-
-    // }
+interface ContextType {
+    locale: string;
+    setLocale: (locale: string) => void;
 }
 
-export default createContext(defaultValue)
+const defaultValue: ContextType = {
+    locale: 'en',
+    setLocale: () => {}
+};
+
+const LocalContext = createContext<ContextType>(defaultValue);
+
+export default LocalContext;

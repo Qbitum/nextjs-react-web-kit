@@ -8,7 +8,7 @@ import { AuthContext, AuthProvider, IAuthContext } from "react-oauth2-code-pkce"
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
-    TAuthConfig
+  TAuthConfig
 } from "react-oauth2-code-pkce";
 import { ToastContainer } from "react-toastify";
 import { getAuthConfig } from "@/helpers/helpers";
@@ -16,6 +16,7 @@ import { useEffectOnce } from "react-use";
 import { AuthAPIContextProvider } from "@/context/authapi.context";
 import LocalContext from "@/LocalContext";
 import i18n from '../i18n';
+import { Select } from "@qbitum/react-flat-ui";
 
 // import { rules } from "@/abac.config";
 function Loading(){
@@ -34,6 +35,8 @@ export default function ImAdminApp({
   const isRun = useRef(false);
   const [authConfig, setAuthConfig] = useState<TAuthConfig>();
   const auth = useContext<IAuthContext>(AuthContext);
+
+
 
   useEffectOnce(() => {
     setTimeout(() => {
@@ -68,14 +71,14 @@ export default function ImAdminApp({
 
   //     }
   //   }
-  const [locale, setLocale] = useState(i18n.language)
+  // const [locale, setLocale] = useState(i18n.language)
 
-  i18n.on('languageChanged', (lng) => setLocale(i18n.language));
+  // i18n.on('languageChanged', (lng) => setLocale(i18n.language));
 
-  const handleChange = (event : any) => {
-      i18n.changeLanguage(event.target.value);
+  // const handleChange = (event : any) => {
+  //     i18n.changeLanguage(event.target.value);
 
-  }
+  // }
 
 
   return (
@@ -85,27 +88,27 @@ export default function ImAdminApp({
         <AuthProvider authConfig={authConfig!}>
           <AuthAPIContextProvider>
        
-           <LocalContext.Provider value={{locale}}>
+           {/* <LocalContext.Provider value={{locale, setLocale}}> */}
             <Suspense fallback={<Loading/>}>
             <QApp id="root">
               <AsideRoutes />
               <Wrapper>
-              {/* <div>
-              <label>Local Change</label>
-              <select value = {locale}  onChange={handleChange}>
+            {/* <div>
+              <label>Select Language</label>
+              <Select value = {locale}  onChange={handleChange}>
                 <option value="en">English</option>
-                <option value="hn">Hindi</option>
-              </select>
+                <option value="hn">हिंदी</option>
+                <option value="sn">සිංහල</option>
+              </Select>
               </div> */}
                 {/* <HeaderRoutes/> */}
                 {/* <AbacProvider rules={rules} user={user} roles={user.roles} permissions={user.permissions}> */}
                 <Component {...pageProps} />
-                {/* <NetworkStatus/> */}
                 {/* </AbacProvider> */}
               </Wrapper>
             </QApp>
             </Suspense>
-           </LocalContext.Provider>
+           {/* </LocalContext.Provider> */}
             </AuthAPIContextProvider>
           </AuthProvider>
       )}
