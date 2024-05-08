@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Label Inspector APIs
- * This is a first set of label inspector services apis.
+ * APIs
+ * This is services apis.
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -19,7 +19,7 @@ import type { Configuration } from './configuration';
 import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 
-export const BASE_PATH = "https://devlabelinspector.qbitum.net".replace(/\/+$/, "");
+export const BASE_PATH = "https://devtemplate.qbitum.net".replace(/\/+$/, "");
 
 /**
  *

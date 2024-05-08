@@ -1,5 +1,5 @@
 import { AiOutlineHome } from 'react-icons/ai';
-import { Sidebar } from './sidebar';
+import { SidebarComponent } from './sidebar';
 
 export const BasicSidebar = () => {
   const sampleMenu = {
@@ -11,6 +11,7 @@ export const BasicSidebar = () => {
     }
   }
   return (
-    <Sidebar menu={sampleMenu} id='test-menu'></Sidebar>
+    <SidebarComponent menu={sampleMenu} id='test-menu'></SidebarComponent>
+
   );
 }

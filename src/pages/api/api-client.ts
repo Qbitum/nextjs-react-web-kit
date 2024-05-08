@@ -1,5 +1,5 @@
 import { logger } from '@/helpers/logger';
-import { Configuration, FileuploadServiceApiFactory, TrainingJobApiFactory, TenantApiFactory, SessionApiFactory, WebApiFactory, MobileApiFactory } from '@/services';
+// import { Configuration, FileuploadServiceApiFactory, TrainingJobApiFactory, TenantApiFactory, SessionApiFactory, WebApiFactory, MobileApiFactory } from '@/services';
 import axios from 'axios';
 import { log } from 'console';
 import { Session } from 'next-auth';
@@ -10,7 +10,7 @@ export class CoreAPIClient {
   public ACCESS_TOKEN = 'accesstoken_default';
   // configuration, base path, axios instance
 
-  private apiConfig = new Configuration({ accessToken: '' });
+  // private apiConfig = new Configuration({ accessToken: '' });
 
   // TODO: get this from the environment file (local,dev,qa)
   private basePath = '/api';
@@ -21,15 +21,15 @@ export class CoreAPIClient {
     this.setupResponseIntercepter();
   }
 
-  public setAuthConfigs(conf: Configuration) {
-    this.apiConfig = conf;
-  }
+  // public setAuthConfigs(conf: Configuration) {
+  //   this.apiConfig = conf;
+  // }
 
   public DashbordAPI(s: Session | null) {
     // Set the AUTH token for any request
     if (s?.user) {
       this.session = s.user;
-      this.apiConfig.accessToken = this.ACCESS_TOKEN;
+      // this.apiConfig.accessToken = this.ACCESS_TOKEN;
     }
 
     //return DashboardApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
@@ -69,34 +69,34 @@ export class CoreAPIClient {
     );
   }
 
-  public ResourcesAPI() {
-    return FileuploadServiceApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
-  }
+  // public ResourcesAPI() {
+  //   return FileuploadServiceApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
+  // }
 
-  public TrainingAPI() {
-    return TrainingJobApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
-  }
+  // public TrainingAPI() {
+  //   return TrainingJobApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
+  // }
 
   public executeAll(requests: any) {
     return axios.all(requests);
     // logger.log(axios.all(requests))
   }
 
-  public MasterDataAPI() {
-    return TenantApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
-  }
+  // public MasterDataAPI() {
+  //   return TenantApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
+  // }
 
-  public SessionAPI() {
-    return SessionApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
-  }
+  // public SessionAPI() {
+  //   return SessionApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
+  // }
 
-  public WebAPI() {
-    return WebApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
-  }
+  // public WebAPI() {
+  //   return WebApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
+  // }
 
-  public MobileAPI() {
-    return MobileApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
-  }
+  // public MobileAPI() {
+  //   return MobileApiFactory(this.apiConfig, this.basePath, this.axiosInstance);
+  // }
 
 };
 

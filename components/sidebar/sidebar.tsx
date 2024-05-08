@@ -1,9 +1,8 @@
-import React, { FC, ReactNode, useContext, useState } from "react";
-import { Sidebar as FlowbiteSidebar } from "@qbitum/react-flat-ui";
+import React, { FC, ReactNode,  useContext,  useState } from "react";
 import { useRouter } from "next/router";
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
-import { FaBell, FaRightFromBracket, FaUser } from "react-icons/fa6";
-
+import { FaChartSimple, FaRightFromBracket, FaUser } from "react-icons/fa6";
+import {Sidebar, SidebarItem } from "flowbite-react";
 
 export type SidebarProps = {
   menu: {
@@ -52,7 +51,7 @@ export const Item: FC<ItemProps> = ({
   return (
     <React.Fragment>
       {to ? (
-        <FlowbiteSidebar.Item
+        <SidebarItem
           active={match}
           href="#"
           onClick={() => {
@@ -61,7 +60,7 @@ export const Item: FC<ItemProps> = ({
           icon={icon}
         >
           {title}
-        </FlowbiteSidebar.Item>
+        </SidebarItem>
       ) : (
         !isMore && !isHorizontal && <h2 key={id}>{title}</h2>
       )}
@@ -86,7 +85,7 @@ export interface MenuItemModel {
     | undefined;
 }
 
-export function Sidebar({
+export function SidebarComponent({
   menu,
   horizontal,
   id,
@@ -125,64 +124,36 @@ export function Sidebar({
   
   return (
     <>
-      <FlowbiteSidebar collapsed={true} className="flex-col">
-        <FlowbiteSidebar.Logo
-          href="#"
+      <Sidebar aria-label="Sidebar with content separator example" className="bg-gray-200 rounded-xl p-4 m-4">
+      <Sidebar.Items>
+        <Sidebar.ItemGroup>
+          <Sidebar.Logo href="#" 
           img="favicon.svg"
-          imgAlt="logo"
-          onClick={() => {
-            setClose(!isClosed);
-          }}
-        ></FlowbiteSidebar.Logo>
-        <FlowbiteSidebar.Items className=" flex-1">
-          {/* top icons */}
+                    imgAlt="logo"
+                    onClick={() => {
+                      setClose(!isClosed);
+                    }}>
+          </Sidebar.Logo>
 
-          {/* <AllowedTo
-            perform={Permission.SHOW_ALL_ICON_OPERATOR}
-            no={() => (
-              null
-            )}
-          > */}
+          <Sidebar.Item href="#" icon={FaChartSimple}>
+            Dashboard
+          </Sidebar.Item>
+        </Sidebar.ItemGroup>
 
-          <FlowbiteSidebar.ItemGroup className="flex-grow">
-            {fillMenu(menuOperator, id, id, horizontal, undefined)}
-          </FlowbiteSidebar.ItemGroup>
-          {/* </AllowedTo> */}
+        <Sidebar.ItemGroup>
+          <Sidebar.Item href="#" icon={FaUser}>
+            Profile
+          </Sidebar.Item>
 
-          {/* <AllowedTo
-            perform={Permission.SHOW_ALL_ICON_ADMIN}
-            no={() => (
-              null
-            )}
-          > */}
-
-          {menu2 !== undefined ? (
-            <FlowbiteSidebar.ItemGroup className="flex-grow">
-              {fillMenu(menu2, id, id, horizontal, undefined)}
-            </FlowbiteSidebar.ItemGroup>
-          ) : null}
-          {/* </AllowedTo> */}
-
-          {/* bottom icons */}
-          <div className="border rounded-lg bg-white bg-opacity-30 m-4 mt-64">
-            <FlowbiteSidebar.BottomGroup className="p-0">
-              <FlowbiteSidebar.Item
-                size={2}
-                href="#"
-                icon={FaBell}
-              ></FlowbiteSidebar.Item>
-              <FlowbiteSidebar.Item href="#" icon={FaUser}>
-                {/* {auth?.tokenData?.name} */}
-              </FlowbiteSidebar.Item>
-              <FlowbiteSidebar.Item
-                href="#"
-                icon={FaRightFromBracket}
-                onClick={handleLogout}
-              ></FlowbiteSidebar.Item>
-            </FlowbiteSidebar.BottomGroup>
-          </div>
-        </FlowbiteSidebar.Items>
-      </FlowbiteSidebar>
+          <Sidebar.Item href="#" icon={FaRightFromBracket}
+                          onClick={handleLogout}>
+            Log out
+          </Sidebar.Item>
+          
+        </Sidebar.ItemGroup>
+      </Sidebar.Items>
+    </Sidebar>
     </>
   );
 }
+

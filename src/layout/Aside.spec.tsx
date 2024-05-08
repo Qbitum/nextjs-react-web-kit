@@ -1,4 +1,3 @@
-//typescript
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { AsideHead, AsideBody, AsideFoot } from './Aside';

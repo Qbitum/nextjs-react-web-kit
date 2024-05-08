@@ -1,15 +1,7 @@
 import { useContext, useEffect, useState, useTransition } from "react";
-import {
-  Page,
-  PageWrapper,
-  Select,
-  SubHeader,
-  SubHeaderLeft,
-  TextInput
-} from "@qbitum/react-flat-ui";
 import { useRouter } from "next/router";
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
-import { Button, Radio } from "flowbite-react";
+import { Button, Navbar, Radio, Select, TextInput } from "flowbite-react";
 import { useTranslation } from "react-i18next";
 import i18n from '../../i18n';
 
@@ -46,11 +38,12 @@ export default function DashboardPage() {
   }
 
   return (
-
-    <PageWrapper>
-      <SubHeader>
-        <SubHeaderLeft heading="Home"></SubHeaderLeft>
-      <div>
+<>
+      <Navbar className="flex w-full bg-gray-200 rounded-lg">
+<div className="flex mr-96 ml-2">
+        <h1>Home</h1>
+        </div>
+      <div className=" ml-96 text-right">
               <label>Select Language</label>
               <Select value = {locale}  onChange={handleChange}>
                 <option value="en">English</option>
@@ -58,9 +51,8 @@ export default function DashboardPage() {
                 <option value="sn">සිංහල</option>
               </Select>
               </div>
-      </SubHeader>
+      </Navbar>
 
-      <Page>
         <div className="bg-white rounded-2xl">
           <div className="text-blue-900 text-md font-bold p-2">Banking</div>
 
@@ -70,14 +62,13 @@ export default function DashboardPage() {
               <TextInput
               id="jobNumber"
               type="jobNumber"
+              className="bg-gray-100 rounded-xl border-gray-800 border-2"
               placeholder={t('place holder')}
             />
               </div>
         </div>
-      </Page>
-
-    </PageWrapper>
-
+    
+    </>
   );
 }
 
