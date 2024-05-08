@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { appPagesMenu } from "../menu";
-import { Sidebar } from "../../components/sidebar";
+import { SidebarComponent } from "../../components/sidebar";
 import Aside from "./Aside";
 import { AbacProvider } from "../context/react-abac/src";
 import { rules } from "@/abac.config";
@@ -44,7 +44,8 @@ const DefaultAside = () => {
         roles={user.roles}
         permissions={user.permissions}
       >
-        <Sidebar menu={appPagesMenu} id="main_naviigation"></Sidebar>
+        <SidebarComponent menu={appPagesMenu} id="main_naviigation"></SidebarComponent>
+
       </AbacProvider>
     </Aside>
   );
