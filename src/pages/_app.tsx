@@ -16,8 +16,6 @@ import LocalContext from "@/LocalContext";
 import i18n from '../i18n';
 import 'react-toastify/dist/ReactToastify.css';
 import { Header } from "QComponents/header";
-import { useTranslation } from "react-i18next";
-// import { rules } from "@/abac.config";
 function Loading() {
   return (
     <>

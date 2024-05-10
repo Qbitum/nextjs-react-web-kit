@@ -1,5 +1,3 @@
-import users from "../data/users.json";
-
 // export interface User {
 //   id: number;
 //   name: string;

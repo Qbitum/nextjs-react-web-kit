@@ -11,23 +11,12 @@ function Protected() {
   const auth = useContext<IAuthContext>(AuthContext);
   const router = useRouter();
 
-  // console.log("Token ", auth.token)
-  // console.log("Acess token : ", auth.token);
-  // console.log("Id token : ",auth.idToken);
-  // console.log("This is index file");
-
   if (auth.token) {
     router.push('./dashboard')
-    // return <p>index page</p>
   }
   else {
     return (<Public />)
   }
-
-  // return (<Public/>)
-
-  // return <div></div>;
-
 
 }
 

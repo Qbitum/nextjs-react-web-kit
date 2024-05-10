@@ -37,4 +37,3 @@ describe('AsideFoot', () => {
     expect(container.firstChild).toHaveClass('aside-foot');
   });
 });
-//

@@ -9,24 +9,7 @@ const Public = () => {
   const [publicPage, setPublicPage] = useState(1);
   const router = useRouter();
   const isRun = useRef(false);
-
-  // useEffect(() => {
-  //   if (isRun.current) return;
-  //   isRun.current = true;
-    auth.login();
-
-  // }, []);
-
-  // const goToHome = () => {
-  //   router.push('./dashboard')
-  // };
-
-
-  // return (
-  //   <Button className="m-3 rounded-md" onClick={goToHome}>
-  //   Home
-  // </Button>
-  // );
+  auth.login();
   return <div></div>;
 };
 
