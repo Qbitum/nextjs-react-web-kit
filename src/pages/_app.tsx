@@ -16,7 +16,6 @@ import { useEffectOnce } from "react-use";
 import { AuthAPIContextProvider } from "@/context/authapi.context";
 import LocalContext from "@/LocalContext";
 import i18n from '../i18n';
-import { Select } from "@qbitum/react-flat-ui";
 
 // import { rules } from "@/abac.config";
 function Loading(){
