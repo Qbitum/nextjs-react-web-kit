@@ -1,5 +1,8 @@
 {
     "welcome": "Hello User",
     "language": "English",
-    "place holder": "Fill This"
+    "place holder": "Fill This",
+    "Dashboard": "Dashboard",
+    "User": "User",
+    "Sign out": "Sign Up"
 }

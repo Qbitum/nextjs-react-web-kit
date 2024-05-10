@@ -1,5 +1,8 @@
 {
     "welcome": "नमस्ते उपयोगकर्ता",
     "language": "Hindi",
-    "place holder": "इसे भरें"
+    "place holder": "इसे भरें",
+    "Dashboard": "डैशबोर्ड",
+    "User": "उपयोगकर्ता",
+    "Sign Out": "साइन आउट"
 }

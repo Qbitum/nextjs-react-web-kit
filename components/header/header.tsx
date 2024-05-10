@@ -1,7 +1,8 @@
-import { useContext, type ReactNode } from 'react';
+import { useContext, type ReactNode, useState } from 'react';
 import { useRouter } from 'next/router';
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import i18n from '@/i18n';
 
 
 export type HeaderProps = {
@@ -20,16 +21,33 @@ export function Header({ children, logOutEvent }: HeaderProps) {
 
   const router = useRouter();
   // TODO : get the client infomation and user details from session hook
-  const tenantName = 'Soltriim International';
-  const userName = 'ADMIN';
 
-  // const handleBtnClick = () => {
-  //   router.push('/');
-  // };
+  // i18n integration
+  const [locale, setLocale] = useState(i18n.language)
+  i18n.on('languageChanged', (lng) => setLocale(i18n.language));
+
+  const switchLanguage = (value: any) => {
+    i18n.changeLanguage(value);
+  }
 
   return (
     < Navbar fluid className='bg-primary-100 sticky top-0 z-10'>
       <div className="flex md:order-2 h-6 sm:h-9">
+        <Dropdown
+          inline
+          arrowIcon={false}
+          value={locale}
+          label={<Avatar img="/imgs/translation.png" />} onChange={switchLanguage}>
+          <Dropdown.Item onClick={() => {
+            switchLanguage('en')
+          }} value='en'>English</Dropdown.Item>
+          <Dropdown.Item onClick={() => {
+            switchLanguage('hn')
+          }} value='hn'>हिंदी</Dropdown.Item>
+          <Dropdown.Item onClick={() => {
+            switchLanguage('sn')
+          }} value='sn'>සිංහල</Dropdown.Item>
+        </Dropdown>
         <Dropdown
           arrowIcon={false}
           inline
@@ -38,7 +56,6 @@ export function Header({ children, logOutEvent }: HeaderProps) {
           }
         >
           <Dropdown.Header>
-            {/* <span className="block text-sm">{auth?.tokenData?.name}</span> */}
             <span className="block truncate text-sm font-medium">{auth?.tokenData?.email}</span>
           </Dropdown.Header>
           <Dropdown.Item>Dashboard</Dropdown.Item>

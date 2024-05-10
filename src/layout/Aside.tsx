@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useRef } from "react";
+import { FC, ReactNode, useRef } from "react";
 
 interface IAsideHeadProps {
   children: ReactNode;
@@ -38,7 +38,7 @@ const Aside: FC<IAsideProps> = ({ children }) => {
 
   const mounted = true;
 
-  return <div className="main_nav py-4 pr-4 bg-sky-50">{children}</div>;
+  return <div className="main_nav bg-sky-50">{children}</div>;
 };
 
 export default Aside;
