@@ -14,7 +14,6 @@ import { useEffectOnce } from "react-use";
 import { AuthAPIContextProvider } from "@/context/authapi.context";
 import 'react-toastify/dist/ReactToastify.css';
 import { Header } from "QComponents/header";
-// import { rules } from "@/abac.config";
 function Loading() {
   return (
     <>

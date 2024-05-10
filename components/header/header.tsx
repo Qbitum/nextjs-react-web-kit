@@ -52,7 +52,7 @@ export function Header({ children, logOutEvent }: HeaderProps) {
           arrowIcon={false}
           inline
           label={
-            <Avatar className='h-6 px-4' alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+            <Avatar className='h-6 px-4' alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-4.jpg" rounded />
           }
         >
           <Dropdown.Header>

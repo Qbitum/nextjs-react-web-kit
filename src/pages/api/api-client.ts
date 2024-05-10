@@ -1,7 +1,4 @@
-import { logger } from '@/helpers/logger';
-// import { Configuration, FileuploadServiceApiFactory, TrainingJobApiFactory, TenantApiFactory, SessionApiFactory, WebApiFactory, MobileApiFactory } from '@/services';
 import axios from 'axios';
-import { log } from 'console';
 import { Session } from 'next-auth';
 
 export class CoreAPIClient {

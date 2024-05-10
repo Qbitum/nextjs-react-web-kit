@@ -17,7 +17,6 @@ export default function DashboardPage() {
 
   const auth = useContext<IAuthContext>(AuthContext);
   const [age, setAge] = useState(0);
-  // const {locale, locales, push} = useRouter();
 
   useEffect(() => {
     document.title = 'Dashboard';

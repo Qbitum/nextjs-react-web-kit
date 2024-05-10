@@ -10,7 +10,6 @@ export interface TabStateObj {
 }
 
 export interface TabConfig {
-  // name: string;
   jobProgressStatus: string;
   displayText: string;
   headers: THeadConfig[];
@@ -33,7 +32,6 @@ const getConfigs = () => {
 
   return [
     {
-    //in mock api accesor of jobProgressStatus is status & PO is PO
     jobProgressStatus: 'IN-PROGRESS', displayText: 'IN PROGRESS', headers: [{ header: "ADDED DATE", accessor: "addedDate" },
     { header: "ARTWORK REFERENCE", accessor: "jobNumber" }, { header: "PO", accessor: "po" },
     { header: "BUYER", accessor: "buyer" },

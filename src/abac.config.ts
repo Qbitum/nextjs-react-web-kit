@@ -1,7 +1,5 @@
-import { useContext } from "react";
 import { Permission, Role, User } from "./models/User";
-import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
-import { logger } from "./helpers/logger";
+
 
 
 // export function useAuth(): IAuthContext | null {

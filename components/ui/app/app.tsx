@@ -18,11 +18,7 @@ export function QApp({ children, id, className, logOutEvent }: AppProps) {
             ref={ref}
             id={id}
             className='app flex width-100 h-screen overscroll-none'
-            style={{/*
-            backgroundColor: fullScreenStatus ? 'var(--bs-body-bg)' : undefined,
-            zIndex: fullScreenStatus ? 1 : undefined,
-            overflow: fullScreenStatus ? 'scroll' : undefined,
-        */}}>
+            style={{}}>
             {children}
         </div>
     );
