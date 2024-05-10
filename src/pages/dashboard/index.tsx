@@ -27,8 +27,10 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Card href="#" className="max-w-sm center">
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <div className="flex p-32 justify-center h-screen">
+
+      <Card href="#" className="flex max-w-xl center">
+        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white ">
           Welcome  to Next.js React Template
         </h5>
         <p className="font-normal text-gray-700 dark:text-gray-400">
@@ -49,6 +51,7 @@ export default function DashboardPage() {
           Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
         </p>
       </Card>
+      </div>
 
 
     </>
