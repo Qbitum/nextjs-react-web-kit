@@ -3,7 +3,6 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
-  transpilePackages: ['@qbitum/react-flat-ui'],
   webpack: (config, { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
   ) => {
 

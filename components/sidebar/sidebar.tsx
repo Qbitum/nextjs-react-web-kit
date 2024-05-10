@@ -1,8 +1,8 @@
-import React, { FC, ReactNode,  useContext,  useState } from "react";
+import React, { FC, ReactNode, useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
-import { FaChartSimple, FaRightFromBracket, FaUser } from "react-icons/fa6";
-import {Sidebar, SidebarItem } from "flowbite-react";
+import { FaChartPie, FaTable, FaUser } from "react-icons/fa6";
+import { Sidebar, SidebarItem } from "flowbite-react";
 
 export type SidebarProps = {
   menu: {
@@ -75,14 +75,14 @@ export interface MenuItemModel {
   icon?: any;
   isDisable?: boolean;
   subMenu?:
-    | {
-        id?: string | number;
-        text?: string;
-        path?: string;
-        icon?: any;
-        isDisable?: boolean;
-      }[]
-    | undefined;
+  | {
+    id?: string | number;
+    text?: string;
+    path?: string;
+    icon?: any;
+    isDisable?: boolean;
+  }[]
+  | undefined;
 }
 
 export function SidebarComponent({
@@ -121,38 +121,28 @@ export function SidebarComponent({
   delete menuOperator.dashboard;
   delete menuOperator.jobList;
 
-  
+
   return (
     <>
-      <Sidebar aria-label="Sidebar with content separator example" className="bg-gray-200 rounded-xl p-4 m-4">
-      <Sidebar.Items>
-        <Sidebar.ItemGroup>
-          <Sidebar.Logo href="#" 
-          img="favicon.svg"
-                    imgAlt="logo"
-                    onClick={() => {
-                      setClose(!isClosed);
-                    }}>
-          </Sidebar.Logo>
+      <Sidebar aria-label="Default sidebar example">
+        <Sidebar.Logo href="#" img="/favicon.svg" imgAlt="Flowbite logo">
+          NextReact
+        </Sidebar.Logo>
+        <Sidebar.Items >
+          <Sidebar.ItemGroup>
+            <Sidebar.Item href="#" icon={FaChartPie}>
+              Dashboard
+            </Sidebar.Item>
+            <Sidebar.Item href="#" icon={FaUser}>
+              Users
+            </Sidebar.Item>
+            <Sidebar.Item href="#" icon={FaTable}>
+              Sign Up
+            </Sidebar.Item>
+          </Sidebar.ItemGroup>
+        </Sidebar.Items>
+      </Sidebar>
 
-          <Sidebar.Item href="#" icon={FaChartSimple}>
-            Dashboard
-          </Sidebar.Item>
-        </Sidebar.ItemGroup>
-
-        <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={FaUser}>
-            Profile
-          </Sidebar.Item>
-
-          <Sidebar.Item href="#" icon={FaRightFromBracket}
-                          onClick={handleLogout}>
-            Log out
-          </Sidebar.Item>
-          
-        </Sidebar.ItemGroup>
-      </Sidebar.Items>
-    </Sidebar>
     </>
   );
 }

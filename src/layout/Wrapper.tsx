@@ -1,10 +1,9 @@
-import React, { FC, ReactNode, useContext, useEffect, useState } from 'react';
+import { FC, ReactNode, useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { AuthContext, IAuthContext } from 'react-oauth2-code-pkce';
 import { AbacProvider } from "../context/react-abac/src";
 import { rules } from '@/abac.config';
-import { Role as roles } from "@/models/User";
 
 interface IWrapperContainerProps {
 	children: ReactNode;
@@ -64,12 +63,6 @@ const Wrapper: FC<IWrapper> = ({ children }) => {
 		}
 	}
 		, [auth])
-
-	// const user = {
-	// 	id: 1,
-	// 	roles: [roles.ADMIN],
-	// 	permissions: []
-	// }
 
 	return (
 		<>

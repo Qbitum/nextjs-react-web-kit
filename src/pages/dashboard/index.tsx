@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState, useTransition } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
-import { Button, Navbar, Radio, Select, TextInput } from "flowbite-react";
+import { Card, TextInput } from "flowbite-react";
 import { useTranslation } from "react-i18next";
-import i18n from '../../i18n';
 
 
 
@@ -13,7 +12,6 @@ export type StatusCardProps = {
 };
 
 export default function DashboardPage() {
-  // console.log("Acess token : ", auth.token);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const route = useRouter();
 
@@ -24,50 +22,36 @@ export default function DashboardPage() {
   useEffect(() => {
     document.title = 'Dashboard';
   }, []);
-  
 
-  const {t} = useTranslation();
 
-  const [locale, setLocale] = useState(i18n.language)
-
-  i18n.on('languageChanged', (lng) => setLocale(i18n.language));
-
-  const handleChange = (event : any) => {
-      i18n.changeLanguage(event.target.value);
-
-  }
+  const { t } = useTranslation();
 
   return (
-<>
-      <Navbar className="flex w-full bg-gray-200 rounded-lg">
-<div className="flex mr-96 ml-2">
-        <h1>Home</h1>
-        </div>
-      <div className=" ml-96 text-right">
-              <label>Select Language</label>
-              <Select value = {locale}  onChange={handleChange}>
-                <option value="en">English</option>
-                <option value="hn">हिंदी</option>
-                <option value="sn">සිංහල</option>
-              </Select>
-              </div>
-      </Navbar>
+    <>
+      <Card href="#" className="max-w-sm center">
+        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Welcome  to Next.js React Template
+        </h5>
+        <p className="font-normal text-gray-700 dark:text-gray-400">
+          <div className="bg-white rounded-2xl">
+            <div className="text-blue-900 text-md font-bold p-2">Welcome message</div>
 
-        <div className="bg-white rounded-2xl">
-          <div className="text-blue-900 text-md font-bold p-2">Banking</div>
-
-              <h1>{t('welcome')}</h1>
-              <div>{t('language')}</div>
-              <div>
+            <h1>{t('welcome')}</h1>
+            <div>{t('language')}</div>
+            <div>
               <TextInput
-              id="jobNumber"
-              type="jobNumber"
-              className="bg-gray-100 rounded-xl border-gray-800 border-2"
-              placeholder={t('place holder')}
-            />
-              </div>
-        </div>
-    
+                id="jobNumber"
+                type="jobNumber"
+                className="bg-gray-100 rounded-xl border-gray-800 border-2"
+                placeholder={t('place holder')}
+              />
+            </div>
+          </div>
+          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
+        </p>
+      </Card>
+
+
     </>
   );
 }

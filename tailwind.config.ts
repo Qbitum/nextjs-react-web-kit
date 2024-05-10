@@ -7,8 +7,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@qbitum/react-flat-ui/lib/esm/**/*.js'
-
+    './node_modules/flowbite-react/lib/esm/**/*.js'
   ],
   plugins: [require('flowbite/plugin')],
   theme: {
@@ -79,14 +78,14 @@ const config: Config = {
         highlight: {
           100: '#F58E15',
         },
-        
+
         appBg: {
           80: '#F2F8FC',
           100: '#F1F8FC',
           200: '#D9E2ED',
           400: '#EAEFF0',
         },
-       
+
       },
       backgroundImage: {
         'menu': "url('/imgs/menubg.png')",
