@@ -1,9 +1,17 @@
 import React, { FC, ReactNode, useContext, useState } from "react";
 import { useRouter } from "next/router";
-import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
-import { FaChartPie, FaTable, FaUser } from "react-icons/fa6";
-import { Sidebar, SidebarItem } from "flowbite-react";
+import { FaCartShopping, FaChartBar, FaGear, FaInbox, FaPowerOff, FaUser } from "react-icons/fa6";
+import {
+  Card,
+  Typography,
+  List,
+  ListItem,
+  ListItemPrefix,
+  ListItemSuffix,
+  Chip,
+} from "@material-tailwind/react";
 import { useTranslation } from "react-i18next";
+import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
 
 export type SidebarProps = {
   menu: {
@@ -52,16 +60,14 @@ export const Item: FC<ItemProps> = ({
   return (
     <React.Fragment>
       {to ? (
-        <SidebarItem
-          active={match}
-          href="#"
-          onClick={() => {
-            changePage(to);
-          }}
-          icon={icon}
-        >
+        <ListItem onClick={() => {
+          changePage(to);
+        }}>
+          <ListItemPrefix>
+            {icon}
+          </ListItemPrefix>
           {title}
-        </SidebarItem>
+        </ListItem>
       ) : (
         !isMore && !isHorizontal && <h2 key={id}>{title}</h2>
       )}
@@ -121,29 +127,60 @@ export function SidebarComponent({
   delete menu2.approvedJobList;
   delete menuOperator.dashboard;
   delete menuOperator.jobList;
- 
+
   const { t } = useTranslation();
 
   return (
     <>
-      <Sidebar aria-label="Default sidebar example">
-        <Sidebar.Logo href="#" img="/favicon.svg" imgAlt="Flowbite logo">
-          NextReact
-        </Sidebar.Logo>
-        <Sidebar.Items >
-          <Sidebar.ItemGroup>
-            <Sidebar.Item href="#" icon={FaChartPie}>
-              {t('Dashboard')}
-            </Sidebar.Item>
-            <Sidebar.Item href="#" icon={FaUser}>
-              {t('User')}
-            </Sidebar.Item>
-            <Sidebar.Item href="#" icon={FaTable}>
-              {t('Sign Out')}
-            </Sidebar.Item>
-          </Sidebar.ItemGroup>
-        </Sidebar.Items>
-      </Sidebar>
+      <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+        <div className="mb-2 flex items-center gap-4 p-4">
+          <img src="favicon.svg" alt="brand" className="h-8 w-8" />
+          <Typography variant="h5" color="blue-gray">
+            Next React template
+          </Typography>
+        </div>
+        <List>
+          <ListItem>
+            <ListItemPrefix>
+              <FaChartBar className="h-5 w-5" />
+            </ListItemPrefix>
+            {t('Dashboard')}
+          </ListItem>
+          <ListItem>
+            <ListItemPrefix>
+              <FaCartShopping className="h-5 w-5" />
+            </ListItemPrefix>
+            E-Commerce
+          </ListItem>
+          <ListItem>
+            <ListItemPrefix>
+              <FaInbox className="h-5 w-5" />
+            </ListItemPrefix>
+            Inbox
+            <ListItemSuffix>
+              <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+            </ListItemSuffix>
+          </ListItem>
+          <ListItem>
+            <ListItemPrefix>
+              <FaUser className="h-5 w-5" />
+            </ListItemPrefix>
+            {t('User')}
+          </ListItem>
+          <ListItem>
+            <ListItemPrefix>
+              <FaGear className="h-5 w-5" />
+            </ListItemPrefix>
+            Settings
+          </ListItem>
+          <ListItem>
+            <ListItemPrefix>
+              <FaPowerOff className="h-5 w-5" />
+            </ListItemPrefix>
+            {t('Sign Out')}
+          </ListItem>
+        </List>
+      </Card>
 
     </>
   );

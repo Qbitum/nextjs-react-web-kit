@@ -1,9 +1,16 @@
+'use client'
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
-import { Card, TextInput } from "flowbite-react";
 import { useTranslation } from "react-i18next";
-
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+  Input
+} from "@material-tailwind/react";
 
 
 export type StatusCardProps = {
@@ -27,30 +34,24 @@ export default function DashboardPage() {
 
   return (
     <>
-        <div className="flex p-32 justify-center h-screen">
-
-      <Card href="#" className="flex max-w-xl center">
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white ">
-          Welcome  to Next.js React Template
-        </h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          <div className="bg-white rounded-2xl">
-            <div className="text-blue-900 text-md font-bold p-2">Welcome message</div>
-
-            <h1>{t('welcome')}</h1>
+      <div className="flex p-32 justify-center h-screen">
+        <Card className="mt-6 w-96">
+          <CardBody>
+            <Typography variant="h5" color="blue-gray" className="mb-2">
+              UI/UX Review Check,
+            </Typography>
+            <Typography>
+              Welcome  to Next.js React Template
+            </Typography>
             <div>{t('language')}</div>
-            <div>
-              <TextInput
-                id="jobNumber"
-                type="jobNumber"
-                className="bg-gray-100 rounded-xl border-gray-800 border-2"
-                placeholder={t('place holder')}
-              />
+            <div className="w-72">
+              <Input label="Username" />
             </div>
-          </div>
-          Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
-        </p>
-      </Card>
+          </CardBody>
+          <CardFooter className="pt-0">
+            <Button>Read More</Button>
+          </CardFooter>
+        </Card>
       </div>
 
 

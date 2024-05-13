@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { ThemeProvider } from "@material-tailwind/react";
 import { Suspense, useContext, useRef, useState } from "react";
 import type { AppProps } from "next/app";
 import { QApp } from "../../components/ui/app/index";
@@ -12,8 +13,6 @@ import { ToastContainer } from "react-toastify";
 import { getAuthConfig } from "@/helpers/helpers";
 import { useEffectOnce } from "react-use";
 import { AuthAPIContextProvider } from "@/context/authapi.context";
-import LocalContext from "@/LocalContext";
-import i18n from '../i18n';
 import 'react-toastify/dist/ReactToastify.css';
 import { Header } from "QComponents/header";
 function Loading() {
@@ -49,19 +48,21 @@ export default function ImAdminApp({
     <>
       <ToastContainer hideProgressBar={true} position="top-center" theme="colored" />
       {showAuth && (
-        <AuthProvider authConfig={authConfig!}>
-          <AuthAPIContextProvider>
-            <Suspense fallback={<Loading />}>
-              <QApp id="root">
-                <AsideRoutes />
-                <Wrapper>
-                  <Header></Header>
-                  <Component {...pageProps} />
-                </Wrapper>
-              </QApp>
-            </Suspense>
-          </AuthAPIContextProvider>
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider authConfig={authConfig!}>
+            <AuthAPIContextProvider>
+              <Suspense fallback={<Loading />}>
+                <QApp id="root">
+                  <AsideRoutes />
+                  <Wrapper>
+                    <Header></Header>
+                    <Component {...pageProps} />
+                  </Wrapper>
+                </QApp>
+              </Suspense>
+            </AuthAPIContextProvider>
+          </AuthProvider>
+        </ThemeProvider>
       )}
     </>
   );
