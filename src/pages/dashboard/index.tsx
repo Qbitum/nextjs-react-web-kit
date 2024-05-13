@@ -45,7 +45,7 @@ export default function DashboardPage() {
             </Typography>
             <div>{t('language')}</div>
             <div className="w-72">
-              <Input label="Username" />
+              <Input label="Username" crossOrigin={undefined} />
             </div>
           </CardBody>
           <CardFooter className="pt-0">
