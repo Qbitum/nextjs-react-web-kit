@@ -1,3 +1,5 @@
+import { AllowedTo } from "@/context/react-abac/src";
+import { Permission } from "@/models/User";
 import {
   Card,
   CardBody,
@@ -6,10 +8,17 @@ import {
   Button,
   Input
 } from "@material-tailwind/react";
+import { AccessDeniedPage } from "QComponents/access-denied-component/access-denied";
 
 export default function Ecommerce() {
-  return(
-    <div className="flex p-32 justify-center h-screen">
+  return (
+    <AllowedTo
+      perform={Permission.SHOW_ECOMMERCE}
+      no={() => (
+        <AccessDeniedPage page={"ecommerce"} />
+      )}
+    >
+      <div className="flex p-32 justify-center h-screen">
         <Card className="mt-6 w-96">
           <CardBody>
             <Typography variant="h5" color="blue-gray" className="mb-2">
@@ -28,5 +37,6 @@ export default function Ecommerce() {
           </CardFooter>
         </Card>
       </div>
+    </AllowedTo>
   )
 }

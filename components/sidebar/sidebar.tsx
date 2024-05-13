@@ -110,8 +110,8 @@ export function SidebarComponent({
     router.push('/dashboard')
   }
 
-  const handleMyjobs = () => {
-    router.push('/myjobs')
+  const handleEcommerce = () => {
+    router.push('/ecommerce')
   }
 
   function fillMenu(
@@ -149,13 +149,13 @@ export function SidebarComponent({
           </Typography>
         </div>
         <List>
-          <ListItem>
+          <ListItem onClick={handleDashboard}>
             <ListItemPrefix>
-              <FaChartBar className="h-5 w-5" onClick={handleDashboard} />
+              <FaChartBar className="h-5 w-5" />
             </ListItemPrefix>
             {t('Dashboard')}
           </ListItem>
-          <ListItem>
+          <ListItem onClick={handleEcommerce}>
             <ListItemPrefix>
               <FaCartShopping className="h-5 w-5" />
             </ListItemPrefix>
@@ -182,7 +182,7 @@ export function SidebarComponent({
             </ListItemPrefix>
             Settings
           </ListItem>
-          <ListItem>
+          <ListItem onClick={handleLogout}>
             <ListItemPrefix>
               <FaPowerOff className="h-5 w-5" />
             </ListItemPrefix>
