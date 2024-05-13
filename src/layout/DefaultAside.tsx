@@ -10,7 +10,7 @@ const DefaultAside = () => {
   const [doc] = useState(
     (typeof window !== "undefined" &&
       localStorage.getItem("IM_WEB_ASIDE") === "true") ||
-      false
+    false
   );
 
   const auth = useContext<IAuthContext>(AuthContext);

@@ -29,7 +29,10 @@ export default function DashboardPage() {
     document.title = 'Dashboard';
   }, []);
 
-
+  // const handleClick = (l: string) => () => {
+  //   push('/language', undefined, {locale: l})
+  // }
+  // const { t : translate } = useTranslation('dashboard')
   const { t } = useTranslation();
 
   return (

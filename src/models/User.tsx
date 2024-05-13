@@ -18,8 +18,8 @@ export enum Permission {
 }
 
 export enum Role {
-  OPERATOR = "Operator",
-  ADMIN = "Admin",
+  AUDIT = "AUDIT",
+  BRN_MGR_BNK_ADM = "BRN_MGR_BNK_ADM",
 }
 
 export interface User {
@@ -27,7 +27,6 @@ export interface User {
   roles: [""],
   permissions: []
   age: number
-
 }
 
 // export function findUserById(id: string | number) {

@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, useContext, useState } from "react";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 import { FaCartShopping, FaChartBar, FaGear, FaInbox, FaPowerOff, FaUser } from "react-icons/fa6";
 import {
   Card,
@@ -130,6 +130,10 @@ export function SidebarComponent({
 
   const { t } = useTranslation();
 
+  const handleDashboard = () => {
+    router.push("/dashboard")
+  }
+
   return (
     <>
       <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
@@ -142,7 +146,7 @@ export function SidebarComponent({
         <List>
           <ListItem>
             <ListItemPrefix>
-              <FaChartBar className="h-5 w-5" />
+              <FaChartBar className="h-5 w-5" onClick={handleDashboard} />
             </ListItemPrefix>
             {t('Dashboard')}
           </ListItem>
@@ -185,4 +189,3 @@ export function SidebarComponent({
     </>
   );
 }
-
