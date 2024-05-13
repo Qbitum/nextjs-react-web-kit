@@ -157,13 +157,13 @@ export function SidebarComponent({
           </ListItem>
           <ListItem onClick={handleEcommerce}>
             <ListItemPrefix>
-              <FaCartShopping className="h-5 w-5" />
+              <FaCartShopping className="h-5 w-5" data-testid="icon-shoppingCart"/>
             </ListItemPrefix>
             E-Commerce
           </ListItem>
           <ListItem>
             <ListItemPrefix>
-              <FaInbox className="h-5 w-5" />
+              <FaInbox className="h-5 w-5" data-testid="icon-inbox"/>
             </ListItemPrefix>
             Inbox
             <ListItemSuffix>

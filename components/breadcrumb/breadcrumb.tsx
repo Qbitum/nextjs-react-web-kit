@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { Breadcrumb, BreadcrumbItem } from 'flowbite-react';
 export type BreadcrumbProps = {
   children?: ReactNode;
 };
@@ -7,14 +6,14 @@ export type BreadcrumbProps = {
 export function BreadcrumbWgt({ children }: BreadcrumbProps) {
   return (
     <div>
-      <Breadcrumb aria-label="Default breadcrumb example">
-      <BreadcrumbItem href="#">
+      <BreadcrumbWgt aria-label="Default breadcrumb example">
+      <BreadcrumbWgt >
         Home
         {children}
-      </BreadcrumbItem>
-      <BreadcrumbItem href="#">Projects</BreadcrumbItem>
-      <BreadcrumbItem>Flowbite React</BreadcrumbItem>
-    </Breadcrumb>
+      </BreadcrumbWgt>
+      <BreadcrumbWgt >Projects</BreadcrumbWgt>
+      <BreadcrumbWgt>Flowbite React</BreadcrumbWgt>
+    </BreadcrumbWgt>
     </div>
   );
 }

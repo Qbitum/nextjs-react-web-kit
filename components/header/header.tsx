@@ -1,5 +1,5 @@
 import { useContext, type ReactNode, useState } from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
 import i18n from '@/i18n';
 import {
@@ -27,7 +27,7 @@ export function Header({ children, logOutEvent }: HeaderProps) {
     auth.logOut();
   }
 
-  const router = useRouter();
+  // const router = useRouter();
   // TODO : get the client infomation and user details from session hook
 
   // i18n integration
