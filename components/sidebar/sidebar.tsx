@@ -101,9 +101,18 @@ export function SidebarComponent({
 }: SidebarProps) {
   const auth = useContext<IAuthContext>(AuthContext);
   const [isClosed, setClose] = useState(true);
+
   const handleLogout = () => {
     auth.logOut();
   };
+
+  const handleDashboard = () => {
+    router.push('/dashboard')
+  }
+
+  const handleMyjobs = () => {
+    router.push('/myjobs')
+  }
 
   function fillMenu(
     data: MenuItemModel[] | any,
@@ -129,10 +138,6 @@ export function SidebarComponent({
   delete menuOperator.jobList;
 
   const { t } = useTranslation();
-
-  const handleDashboard = () => {
-    router.push("/dashboard")
-  }
 
   return (
     <>

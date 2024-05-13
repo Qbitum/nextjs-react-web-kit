@@ -14,7 +14,7 @@ const DefaultAside = () => {
   );
 
   const auth = useContext<IAuthContext>(AuthContext);
-  console.log("Wrapper token : ", auth?.tokenData);
+  // console.log("Wrapper token : ", auth?.tokenData);
 
   const [user, setUser] = useState({
     id: 1,

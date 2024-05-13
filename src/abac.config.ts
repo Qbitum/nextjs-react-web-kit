@@ -1,4 +1,4 @@
-import { Permission, Role, User } from "./models/User";
+import { Permission, Role } from "./models/User";
 
 
 
@@ -13,6 +13,7 @@ export const rules = {
   [Role.AUDIT]: {
     [Permission.SHOW_DASHBOARD]: true,
     // [Permission.SHOW_PREP]: true,
+    [Permission.SHOW_MYJOBS]: true,
     [Permission.LOGIN]: true,
     [Permission.SHOW_ALL_ICON_OPERATOR]: false,
     [Permission.SHOW_ALL_ICON_ADMIN]: true,
@@ -22,7 +23,7 @@ export const rules = {
   },
 
   [Role.BRN_MGR_BNK_ADM]: {
-    [Permission.SHOW_MYJOBS]: true,
+    [Permission.SHOW_MYJOBS]: false,
     [Permission.SHOW_DASHBOARD]: false,
     // [Permission.SHOW_PREP]: false,
     [Permission.LOGIN]: true,
