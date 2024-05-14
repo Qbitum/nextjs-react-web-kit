@@ -12,6 +12,8 @@ import {
 } from "@material-tailwind/react";
 import { useTranslation } from "react-i18next";
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
+import { AllowedTo } from "@/context/react-abac/src";
+import { Permission } from "@/models/User";
 
 export type SidebarProps = {
   menu: {
@@ -131,11 +133,11 @@ export function SidebarComponent({
     ));
   }
 
-  const menu2 = { ...menu };
-  const menuOperator = { ...menu };
-  delete menu2.approvedJobList;
-  delete menuOperator.dashboard;
-  delete menuOperator.jobList;
+  // const menu2 = { ...menu };
+  // const menuOperator = { ...menu };
+  // delete menu2.approvedJobList;
+  // delete menuOperator.dashboard;
+  // delete menuOperator.jobList;
 
   const { t } = useTranslation();
 
@@ -149,21 +151,25 @@ export function SidebarComponent({
           </Typography>
         </div>
         <List>
-          <ListItem onClick={handleDashboard}>
-            <ListItemPrefix>
-              <FaChartBar className="h-5 w-5" />
-            </ListItemPrefix>
-            {t('Dashboard')}
-          </ListItem>
-          <ListItem onClick={handleEcommerce}>
-            <ListItemPrefix>
-              <FaCartShopping className="h-5 w-5" data-testid="icon-shoppingCart"/>
-            </ListItemPrefix>
-            E-Commerce
-          </ListItem>
+          <AllowedTo perform={Permission.SHOW_DASHBOARD}>
+            <ListItem onClick={handleDashboard}>
+              <ListItemPrefix>
+                <FaChartBar className="h-5 w-5" />
+              </ListItemPrefix>
+              {t('Dashboard')}
+            </ListItem>
+          </AllowedTo>
+          <AllowedTo perform={Permission.SHOW_ECOMMERCE}>
+            <ListItem onClick={handleEcommerce}>
+              <ListItemPrefix>
+                <FaCartShopping className="h-5 w-5" />
+              </ListItemPrefix>
+              E-Commerce
+            </ListItem>
+          </AllowedTo>
           <ListItem>
             <ListItemPrefix>
-              <FaInbox className="h-5 w-5" data-testid="icon-inbox"/>
+              <FaInbox className="h-5 w-5" data-testid="icon-inbox" />
             </ListItemPrefix>
             Inbox
             <ListItemSuffix>

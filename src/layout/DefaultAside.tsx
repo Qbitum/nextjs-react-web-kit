@@ -27,7 +27,7 @@ const DefaultAside = () => {
     if (auth && auth.tokenData) {
       setUser({
         id: 1,
-        roles: auth?.tokenData?.role,
+        roles: auth?.tokenData?.realm_access?.roles,
         permissions: auth?.tokenData?.permissions,
         age: auth?.tokenData?.age,
       });
