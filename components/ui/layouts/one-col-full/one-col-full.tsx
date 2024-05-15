@@ -1,4 +1,5 @@
-import { Button, Dropdown } from 'flowbite-react';
+// import { Button, Dropdown } from 'flowbite-react';
+import { Button } from '@material-tailwind/react';
 import Image from 'next/image'
 import type { ReactNode } from 'react';
 
@@ -22,26 +23,30 @@ export function OneColFull({ children }: OneColFullProps) {
           </div>
           <div className="flex items-center">
             <div className="flex text-white">
-              <Button href="https://www.@qbitum/react-flat-ui.com/docs/components/button"
-                size="xs"
+              <Button 
+              // href="https://www.@qbitum/react-flat-ui.com/docs/components/button"
+                // size="xs"
                 className=" bg-transparent border-0 hover:bg-transparent hover:text-theme-primaryDark border-r border-whitw"
               >
                 Terms & Conditions
               </Button>
-              <Button  href="https://www.@qbitum/react-flat-ui.com/docs/components/button"
-                size="xs"
+              <Button  
+              // href="https://www.@qbitum/react-flat-ui.com/docs/components/button"
+                // size="xs"
                 className=" bg-transparent border-0 hover:bg-transparent hover:text-theme-primaryDark border-r border-white"
               >
                 Contact Us
               </Button>
-              <Button href="https://www.@qbitum/react-flat-ui.com/docs/components/button"
-                size="xs"
+              <Button 
+              // href="https://www.@qbitum/react-flat-ui.com/docs/components/button"
+                // size="xs"
                 className=" bg-transparent border-0 hover:bg-transparent hover:text-theme-primaryDark border-r border-white"
               >
                 Privacy Policy
               </Button>
-              <Button href="https://www.@qbitum/react-flat-ui.com/docs/components/button"
-                size="xs"
+              <Button 
+              // href="https://www.@qbitum/react-flat-ui.com/docs/components/button"
+                // size="xs"
                 className=" bg-transparent border-0 hover:bg-transparent hover:text-theme-primaryDark border-r border-white"
               >
                 FAQs
@@ -49,13 +54,13 @@ export function OneColFull({ children }: OneColFullProps) {
             </div>
             <div className="flex items-center ml-8">
               <div className="text-xs  text-white mr-2">Change Language</div>
-              <Dropdown
+              {/* <Dropdown
                 label="EN"
                 size="sm"
                 placement="top"
                 outline
                 className="text-xs text-gray-800 font-bold hover:bg-gray-100"
-              />
+              /> */}
             </div>
           </div>
         </div>

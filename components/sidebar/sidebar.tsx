@@ -1,9 +1,19 @@
 import React, { FC, ReactNode, useContext, useState } from "react";
-import { useRouter } from "next/router";
-import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
-import { FaChartPie, FaTable, FaUser } from "react-icons/fa6";
-import { Sidebar, SidebarItem } from "flowbite-react";
+import router, { useRouter } from "next/router";
+import { FaCartShopping, FaChartBar, FaGear, FaInbox, FaPowerOff, FaUser } from "react-icons/fa6";
+import {
+  Card,
+  Typography,
+  List,
+  ListItem,
+  ListItemPrefix,
+  ListItemSuffix,
+  Chip,
+} from "@material-tailwind/react";
 import { useTranslation } from "react-i18next";
+import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
+import { AllowedTo } from "@/context/react-abac/src";
+import { Permission } from "@/models/User";
 
 export type SidebarProps = {
   menu: {
@@ -52,16 +62,14 @@ export const Item: FC<ItemProps> = ({
   return (
     <React.Fragment>
       {to ? (
-        <SidebarItem
-          active={match}
-          href="#"
-          onClick={() => {
-            changePage(to);
-          }}
-          icon={icon}
-        >
+        <ListItem onClick={() => {
+          changePage(to);
+        }}>
+          <ListItemPrefix>
+            {icon}
+          </ListItemPrefix>
           {title}
-        </SidebarItem>
+        </ListItem>
       ) : (
         !isMore && !isHorizontal && <h2 key={id}>{title}</h2>
       )}
@@ -95,9 +103,18 @@ export function SidebarComponent({
 }: SidebarProps) {
   const auth = useContext<IAuthContext>(AuthContext);
   const [isClosed, setClose] = useState(true);
+
   const handleLogout = () => {
     auth.logOut();
   };
+
+  const handleDashboard = () => {
+    router.push('/dashboard')
+  }
+
+  const handleEcommerce = () => {
+    router.push('/ecommerce')
+  }
 
   function fillMenu(
     data: MenuItemModel[] | any,
@@ -116,36 +133,70 @@ export function SidebarComponent({
     ));
   }
 
-  const menu2 = { ...menu };
-  const menuOperator = { ...menu };
-  delete menu2.approvedJobList;
-  delete menuOperator.dashboard;
-  delete menuOperator.jobList;
- 
+  // const menu2 = { ...menu };
+  // const menuOperator = { ...menu };
+  // delete menu2.approvedJobList;
+  // delete menuOperator.dashboard;
+  // delete menuOperator.jobList;
+
   const { t } = useTranslation();
 
   return (
     <>
-      <Sidebar aria-label="Default sidebar example">
-        <Sidebar.Logo href="#" img="/favicon.svg" imgAlt="Flowbite logo">
-          NextReact
-        </Sidebar.Logo>
-        <Sidebar.Items >
-          <Sidebar.ItemGroup>
-            <Sidebar.Item href="#" icon={FaChartPie}>
+      <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+        <div className="mb-2 flex items-center gap-4 p-4">
+          <img src="favicon.svg" alt="brand" className="h-8 w-8" />
+          <Typography variant="h5" color="blue-gray">
+            Next React template
+          </Typography>
+        </div>
+        <List>
+          <AllowedTo perform={Permission.SHOW_DASHBOARD}>
+            <ListItem onClick={handleDashboard}>
+              <ListItemPrefix>
+                <FaChartBar className="h-5 w-5" />
+              </ListItemPrefix>
               {t('Dashboard')}
-            </Sidebar.Item>
-            <Sidebar.Item href="#" icon={FaUser}>
-              {t('User')}
-            </Sidebar.Item>
-            <Sidebar.Item href="#" icon={FaTable}>
-              {t('Sign Out')}
-            </Sidebar.Item>
-          </Sidebar.ItemGroup>
-        </Sidebar.Items>
-      </Sidebar>
+            </ListItem>
+          </AllowedTo>
+          <AllowedTo perform={Permission.SHOW_ECOMMERCE}>
+            <ListItem onClick={handleEcommerce}>
+              <ListItemPrefix>
+                <FaCartShopping className="h-5 w-5" />
+              </ListItemPrefix>
+              E-Commerce
+            </ListItem>
+          </AllowedTo>
+          <ListItem>
+            <ListItemPrefix>
+              <FaInbox className="h-5 w-5" data-testid="icon-inbox" />
+            </ListItemPrefix>
+            Inbox
+            <ListItemSuffix>
+              <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full" />
+            </ListItemSuffix>
+          </ListItem>
+          <ListItem>
+            <ListItemPrefix>
+              <FaUser className="h-5 w-5" />
+            </ListItemPrefix>
+            {t('User')}
+          </ListItem>
+          <ListItem>
+            <ListItemPrefix>
+              <FaGear className="h-5 w-5" />
+            </ListItemPrefix>
+            Settings
+          </ListItem>
+          <ListItem onClick={handleLogout}>
+            <ListItemPrefix>
+              <FaPowerOff className="h-5 w-5" />
+            </ListItemPrefix>
+            {t('Sign Out')}
+          </ListItem>
+        </List>
+      </Card>
 
     </>
   );
 }
-

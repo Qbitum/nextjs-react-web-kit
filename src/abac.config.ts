@@ -1,4 +1,4 @@
-import { Permission, Role, User } from "./models/User";
+import { Permission, Role } from "./models/User";
 
 
 
@@ -10,24 +10,22 @@ import { Permission, Role, User } from "./models/User";
 // console.log(" token : ", auth?.tokenData?.permissions);
 
 export const rules = {
-  [Role.ADMIN]: {
+  [Role.AUDIT]: {
     [Permission.SHOW_DASHBOARD]: true,
-    // [Permission.SHOW_PREP]: true,
+    [Permission.SHOW_ECOMMERCE]: false,
     [Permission.LOGIN]: true,
-    // [Permission.SHOW_ALL_ICON_OPERATOR]: false,
-    // [Permission.SHOW_ALL_ICON_ADMIN]: true,
+    // [Permission.SHOW_ALL_ICON_AUDIT]: false,
+    // [Permission.SHOW_ALL_ICON_BRN_MGR_BNK_ADM]: true,
     // [Permission.SHOW_TRAINING_AGE_LIMIT]: (userAge: number) => userAge > 20,
     // [Permission.SHOW_TRAINING]: true,
-    // [Permission.SHOW_MYJOBS]: false,
   },
 
-  // [Role.OPERATOR]: {
-  //   [Permission.SHOW_MYJOBS]: true,
-  //   [Permission.SHOW_DASHBOARD]: false,
-  //   [Permission.SHOW_PREP]: false,
-  //   [Permission.LOGIN]: true,
-  //   [Permission.SHOW_ALL_ICON_OPERATOR]: true,
-  //   [Permission.SHOW_ALL_ICON_ADMIN]: false
-  // }
+  [Role.BRN_MGR_BNK_ADM]: {
+    [Permission.SHOW_DASHBOARD]: false,
+    [Permission.SHOW_ECOMMERCE]: true,
+    [Permission.LOGIN]: true,
+    // [Permission.SHOW_ALL_ICON_AUDIT]: true,
+    // [Permission.SHOW_ALL_ICON_BRN_MGR_BNK_ADM]: false
+  }
 
 };

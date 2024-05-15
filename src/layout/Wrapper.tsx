@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { AuthContext, IAuthContext } from 'react-oauth2-code-pkce';
 import { AbacProvider } from "../context/react-abac/src";
 import { rules } from '@/abac.config';
+import { logger } from '@/helpers/logger';
 
 interface IWrapperContainerProps {
 	children: ReactNode;
@@ -38,6 +39,7 @@ interface IWrapper {
 const Wrapper: FC<IWrapper> = ({ children }) => {
 
 	const auth = useContext<IAuthContext>(AuthContext);
+	console.log("Wrapper token : ", auth?.tokenData);
 
 	const [user, setUser] = useState(
 		{
@@ -54,11 +56,12 @@ const Wrapper: FC<IWrapper> = ({ children }) => {
 			setUser(
 				{
 					id: 1,
-					roles: auth?.tokenData?.role,
+					roles: auth?.tokenData?.realm_access?.roles,
 					permissions: auth?.tokenData?.permissions,
 					age: auth?.tokenData?.age
 				}
 			)
+			logger.log(user)
 		}
 	}
 		, [auth])

@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import Image from 'next/image'
-import { Button } from 'flowbite-react';
+import Button from '@material-tailwind/react/components/Button';
 
 export type PageWithHeaderProps = {
   children?: ReactNode;
@@ -32,7 +32,6 @@ export function PageWithHeader({ children , logOutEvent}: PageWithHeaderProps) {
               <div className="flex items-center ml-8">
                 <Button
                     size="sm"
-                    outline
                     className="text-xs text-gray-800 font-bold hover:bg-gray-100"
                     onClick={(e:any) => handleBtnClick(e)}
                 >

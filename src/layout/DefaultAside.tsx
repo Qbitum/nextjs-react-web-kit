@@ -10,11 +10,11 @@ const DefaultAside = () => {
   const [doc] = useState(
     (typeof window !== "undefined" &&
       localStorage.getItem("IM_WEB_ASIDE") === "true") ||
-      false
+    false
   );
 
   const auth = useContext<IAuthContext>(AuthContext);
-  console.log("Wrapper token : ", auth?.tokenData);
+  // console.log("Wrapper token : ", auth?.tokenData);
 
   const [user, setUser] = useState({
     id: 1,
@@ -27,7 +27,7 @@ const DefaultAside = () => {
     if (auth && auth.tokenData) {
       setUser({
         id: 1,
-        roles: auth?.tokenData?.role,
+        roles: auth?.tokenData?.realm_access?.roles,
         permissions: auth?.tokenData?.permissions,
         age: auth?.tokenData?.age,
       });

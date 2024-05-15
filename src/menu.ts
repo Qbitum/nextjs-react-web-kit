@@ -1,4 +1,4 @@
-import { FaBarsProgress} from "react-icons/fa6";
+import { FaBarsProgress } from "react-icons/fa6";
 export const appPagesMenu = {
 
 

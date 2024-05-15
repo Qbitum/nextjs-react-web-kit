@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { ThemeProvider } from "@material-tailwind/react";
 import { Suspense, useContext, useRef, useState } from "react";
 import type { AppProps } from "next/app";
 import { QApp } from "../../components/ui/app/index";
@@ -12,10 +13,10 @@ import { ToastContainer } from "react-toastify";
 import { getAuthConfig } from "@/helpers/helpers";
 import { useEffectOnce } from "react-use";
 import { AuthAPIContextProvider } from "@/context/authapi.context";
-import LocalContext from "@/LocalContext";
-import i18n from '../i18n';
 import 'react-toastify/dist/ReactToastify.css';
 import { Header } from "QComponents/header";
+import LocalContext from "@/LocalContext";
+import i18n from "@/i18n";
 
 function Loading() {
   return (
