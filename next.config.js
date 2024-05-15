@@ -16,17 +16,20 @@ const nextConfig = {
     return config;
   },
   async rewrites() {
+    const apiEndpoint = process.env.BASE_API_ENDPOINT; // Access environment variable
     return [
       {
+        // source: '/api/:path*',
+        // destination: 'https://devlabelinspector.qbitum.net/api/:path*',
         source: '/api/:path*',
-        destination: 'https://devlabelinspector.qbitum.net/api/:path*',
+        destination: `${apiEndpoint}/api/:path*`,
       }
     ]
   },
 
 }
+// require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` }); 
+
 
 module.exports = nextConfig
-
-
 

@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { AuthContext, IAuthContext } from "react-oauth2-code-pkce";
-import { Select, Navbar, TextInput } from "flowbite-react";
 import { useTranslation } from "react-i18next";
 import i18n from '../../i18n';
 import { AccessDeniedPage } from "QComponents/access-denied-component/access-denied";
 import { AllowedTo } from "@/context/react-abac/src";
 import { Permission } from "@/models/User";
+import { Navbar, Select } from "@material-tailwind/react";
 
 export type StatusCardProps = {
   jobStatus: string;
@@ -74,14 +74,14 @@ export default function MyJobsPage() {
           } */}
           <h1>{t('welcome')}</h1>
           <div>{t('language')}</div>
-          <div>
+          {/* <div>
             <TextInput
               id="jobNumber"
               type="jobNumber"
               className="bg-gray-100 rounded-xl border-gray-800 border-2"
               placeholder={t('place holder')}
             />
-          </div>
+          </div> */}
         </div>
       </AllowedTo>
     </>

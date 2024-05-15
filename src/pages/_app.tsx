@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import { ThemeProvider } from "@material-tailwind/react";
 import { Suspense, useContext, useRef, useState } from "react";
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV || 'production'}` }); // Adjust path if necessary
+
 import type { AppProps } from "next/app";
 import { QApp } from "../../components/ui/app/index";
 import AsideRoutes from "@/layout/AsideRoutes";
