@@ -16,6 +16,7 @@ import LocalContext from "@/LocalContext";
 import i18n from '../i18n';
 import 'react-toastify/dist/ReactToastify.css';
 import { Header } from "QComponents/header";
+
 function Loading() {
   return (
     <>
@@ -32,6 +33,7 @@ export default function ImAdminApp({
   const isRun = useRef(false);
   const [authConfig, setAuthConfig] = useState<TAuthConfig>();
   const auth = useContext<IAuthContext>(AuthContext);
+  const [locale, setLocale] = useState(i18n.language)
 
 
 
@@ -50,17 +52,19 @@ export default function ImAdminApp({
       <ToastContainer hideProgressBar={true} position="top-center" theme="colored" />
       {showAuth && (
         <AuthProvider authConfig={authConfig!}>
+          <LocalContext.Provider value={{locale}}>
           <AuthAPIContextProvider>
-            <Suspense fallback={<Loading />}>
               <QApp id="root">
                 <AsideRoutes />
+            <Suspense fallback={<Loading />}>
                 <Wrapper>
                   <Header></Header>
                   <Component {...pageProps} />
                 </Wrapper>
-              </QApp>
             </Suspense>
+              </QApp>
           </AuthAPIContextProvider>
+          </LocalContext.Provider>
         </AuthProvider>
       )}
     </>

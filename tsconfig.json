@@ -33,7 +33,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/i18n.tsx"  ],
   "exclude": [
     "node_modules"
   ]
