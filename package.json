@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "env-cmd -f .env.dev next build && next start",
+    "dev": "env-cmd -f .env.dev next start",
     "qa": "env-cmd -f .env.uat next build && next start",
     "prod": "env-cmd -f .env.prod next build && next start",
     "stage": "env-cmd -f .env.staging next build && next start",
@@ -39,7 +39,6 @@
     "classnames": "^2.5.1",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
-    "env-cmd": "^10.1.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "formik": "^2.4.5",

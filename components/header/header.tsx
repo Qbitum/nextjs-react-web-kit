@@ -32,7 +32,7 @@ export function Header({ children, logOutEvent }: HeaderProps) {
 
   // i18n integration
   const [locale, setLocale] = useState(i18n.language)
-  i18n.on('languageChanged', (lng) => setLocale(i18n.language));
+  i18n.on('languageChanged', (lng : any) => setLocale(i18n.language));
 
   const switchLanguage = (value: any) => {
     i18n.changeLanguage(value);
