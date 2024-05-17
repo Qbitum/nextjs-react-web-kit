@@ -15,6 +15,7 @@ const nextConfig = {
     config.snapshot.managedPaths = [];
     return config;
   },
+  
   async rewrites() {
     const apiEndpoint = process.env.BASE_API_ENDPOINT; // Access environment variable
     return [
@@ -28,6 +29,7 @@ const nextConfig = {
   },
 
 }
+require('dotenv').config({ path: `.env.${process.env.APP_ENV}` }); 
 // require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` }); 
 
 
