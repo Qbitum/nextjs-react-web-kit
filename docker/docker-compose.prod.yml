@@ -5,7 +5,7 @@ services:
     container_name: qb-template-app
     build:
       context: ../
-      dockerfile: qa.Dockerfile
+      dockerfile: prod.Dockerfile
       args:
         ENV_VARIABLE: ${ENV_VARIABLE}
         NODE_ENV: production

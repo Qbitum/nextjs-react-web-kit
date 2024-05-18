@@ -44,7 +44,9 @@ const DefaultAside = () => {
         roles={user.roles}
         permissions={user.permissions}
       >
-        <SidebarComponent menu={appPagesMenu} id="main_naviigation"></SidebarComponent>
+        {auth.token ? (
+          <SidebarComponent menu={appPagesMenu} id="main_naviigation"></SidebarComponent>
+        ) : null}
 
       </AbacProvider>
     </Aside>
