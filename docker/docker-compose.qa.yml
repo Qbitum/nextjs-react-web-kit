@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  next-app:
+    container_name: saastack-im-app
+    build:
+      context: ../
+      dockerfile: qa.Dockerfile
+      args:
+        ENV_VARIABLE: ${ENV_VARIABLE}
+        NODE_ENV: production
+        NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+    restart: always
+    ports:
+      - 4000:3000
+    networks:
+      - saastack_network
+
+  # Add more containers below (nginx, postgres, etc.)
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  saastack_network:
+    external: true

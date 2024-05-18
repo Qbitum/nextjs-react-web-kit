@@ -20,17 +20,13 @@ const nextConfig = {
     const apiEndpoint = process.env.BASE_API_ENDPOINT; // Access environment variable
     return [
       {
-        // source: '/api/:path*',
-        // destination: 'https://devlabelinspector.qbitum.net/api/:path*',
         source: '/api/:path*',
-        destination: `${apiEndpoint}/api/:path*`,
+        destination: 'https://devlabelinspector.qbitum.net/api/:path*',
       }
     ]
   },
 
 }
-require('dotenv').config({ path: `.env.${process.env.APP_ENV}` }); 
-// require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` }); 
 
 
 module.exports = nextConfig
