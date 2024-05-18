@@ -3,11 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "env-cmd -f .env.dev next build && next start",
-    "qa": "env-cmd -f .env.uat next build && next start",
-    "prod": "env-cmd -f .env.prod next build && next start",
-    "stage": "env-cmd -f .env.staging next build && next start",
-    "deploy": "env-cmd -f .env.deploy next build && next start",
+    "dev": "npm-run-all --parallel next-dev",
     "next-dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start -p 4000",
