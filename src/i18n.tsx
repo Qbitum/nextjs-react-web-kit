@@ -19,15 +19,8 @@ i18n
     ns: ['translation'],
     defaultNS: 'translation',
     backend: {
-      loadPath: `http://localhost:4000/locales/{{lng}}/{{ns}}.json`
+      loadPath: `${process.env.NEXT_PUBLIC_I18N_LOADPATH}/locales/{{lng}}/{{ns}}.json`
     }
-    // backend: {
-    //   /* translation file path */
-    //   loadPath: '/locales/{{lng}}/translation.json',
-    //   fetch
-    // }, 'http://localhost:4000/locales/{{lng}}/{{ns}}.json'
-          // loadPath: `${process.env.NEXT_I18N_LOADPATH}/locales/{{lng}}/{{ns}}.json`
-
 
   });
 
