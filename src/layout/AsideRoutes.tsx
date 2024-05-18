@@ -10,7 +10,7 @@ const AsideRoutes = () => {
     // eslint-disable-next-line no-unsafe-optional-chaining
     return key.path.substring(key.path?.length - 2) === "/*"
       ? // eslint-disable-next-line no-unsafe-optional-chaining
-        router.pathname.includes(key.path.substring(0, key.path?.length - 2))
+      router.pathname.includes(key.path.substring(0, key.path?.length - 2))
       : key.path === pathToRoute(router.pathname);
   });
 
