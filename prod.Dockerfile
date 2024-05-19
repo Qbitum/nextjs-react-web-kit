@@ -10,7 +10,7 @@ COPY package.json package-lock.json* ./
 COPY .npmrc .
 # Omit --production flag for TypeScript devDependencies
 RUN npm ci
-#RUN \
+#RUN 
 #  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
 #  elif [ -f package-lock.json ]; then npm ci; \
 #  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i; \
@@ -26,8 +26,6 @@ COPY tsconfig.json .
 COPY tailwind.config.ts .
 COPY postcss.config.js .
 COPY .env.production .
-
-COPY mocked-apis .
 
 # Environment variables must be present at build time
 # https://github.com/vercel/next.js/discussions/14030

@@ -8,7 +8,7 @@ WORKDIR /app
 # Install dependencies based on the preferred package manager
 COPY package.json package-lock.json* ./
 # Omit --production flag for TypeScript devDependencies
-RUN npm ci --verbose
+RUN npm ci
 #RUN \
 #  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
 #  elif [ -f package-lock.json ]; then npm ci; \
