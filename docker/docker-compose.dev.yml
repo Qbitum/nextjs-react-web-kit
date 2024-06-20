@@ -21,7 +21,7 @@ services:
       - ../components:/app/components
     restart: always
     ports:
-      - 4000:4000
+      - 4000:3000
     networks:
       - saastack_network
 
